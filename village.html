@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="resources/humanVillages.js"></script>
+    <title>Village Creator 1.0</title>
+	</head>
+	<body>
+
+		<div id="input">
+			<!-- Selecting input for the village creation -->
+			<h3>Create a village!</h3>
+			<form id="create_village" onsubmit="return false;">
+				<table>
+					<tbody>
+						<tr>
+							<td>Select a town size</td>
+           	  <td>
+            		<select id="size">
+            			<!-- Selecting town size by increment -->
+									<option value="0"selected="">Manual</option>
+									<option value="1">Any</option>
+									<option value="2">Thorp</option>
+									<option value="3">Hamlet</option>
+									<option value="4">Village</option>
+									<option value="5">Small Town</option>
+									<option value="6">Large Town</option>
+									<option value="7">Small City</option>
+									<option value="8">Large City</option>
+									<option value="9">Metropolis</option>
+								</select>
+							</td>
+							<td>
+								<!-- Selecting town size by specific numeric input -->
+								<label for="amount">The amount of villagers: </label>
+	     				  <input type="number" name="amount" id="amount">
+							</td>
+						</tr>
+						<tr>
+							<td>Select a town name</td>
+           	  <td>
+            		<select id="name">
+            			<!-- Selecting town name by random racial name -->
+									<option value="0"selected="">Manual</option>
+									<option value="1">Random Drarven</option>
+									<option value="2">Random Elven</option>
+									<option value="3">Random Gnome</option>
+									<option value="4">Random Orc</option>
+									<option value="5">Random Halfling</option>
+									<option value="6">Random Human</option>
+									<option value="7">Random Other</option>
+								</select>
+							</td>
+							<td>
+								<!-- Selecting town name by specific spelled input -->
+								<label for="name">The name of the village: </label>
+	     				  <input type="text" name="name" id="name">
+							</td>
+						</tr>
+  				</tbody>
+  			</table>
+	      
+	      <button type="submit" class="btn btn-submit">Create!</button>
+	    </form>
+		</div>
+
+		<div id="output">
+			<h3>Here there be a village!</h3>
+			<!-- Output of village parameters -->
+			<table>
+				<tr>
+					<th>Settlement Name</th>
+					<td><span id="villageName"></span></td>
+				</tr>
+				<tr>
+					<th>Settlement Type</th>
+					<td><span id="villageType"></span></td>
+				</tr><tr>
+					<th>Population</th>
+					<td><span id="villagersAmount"></span></td>
+				</tr>
+				<tr>
+					<th>Villager Names</th>
+					<td><ul id="villagers_names"></ul></td>
+				</tr>
+			</table>
+		</div>
+		
+	</body>
+</html>
