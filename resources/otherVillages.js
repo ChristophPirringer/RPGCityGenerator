@@ -1,6 +1,6 @@
-var nameSyllables = ["human", "human", "human", "human", "human", "human", "human", "human"];
+var nameSyllables = ["other", "other", "other", "other", "other", "other", "other", "other"];
 
-function CreateNewHumanCityName()
+function CreateNewOtherCityName()
 {
     //Creates a first name with 1-3 syllables
     var firstName = "";

@@ -1,6 +1,6 @@
-var nameSyllables = ["human", "human", "human", "human", "human", "human", "human", "human"];
+var nameSyllables = ["halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling"];
 
-function CreateNewHumanCityName()
+function CreateNewHalflingCityName()
 {
     //Creates a first name with 1-3 syllables
     var firstName = "";

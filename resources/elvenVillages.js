@@ -1,6 +1,6 @@
-var nameSyllables = ["human", "human", "human", "human", "human", "human", "human", "human"];
+var nameSyllables = ["elf", "elf", "elf", "elf", "elf", "elf", "elf", "elf"];
 
-function CreateNewHumanCityName()
+function CreateNewElvenCityName()
 {
     //Creates a first name with 1-3 syllables
     var firstName = "";

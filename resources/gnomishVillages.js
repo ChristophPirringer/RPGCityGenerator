@@ -1,6 +1,6 @@
-var nameSyllables = ["human", "human", "human", "human", "human", "human", "human", "human"];
+var nameSyllables = ["gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome"];
 
-function CreateNewHumanCityName()
+function CreateNewGnomishCityName()
 {
     //Creates a first name with 1-3 syllables
     var firstName = "";

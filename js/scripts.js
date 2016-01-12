@@ -1,7 +1,8 @@
 // Declare the Object of Village, with name, 
 // number of villagers and array of villager objects 
-function Village(villageName, villagersAmount, villagersList, villageSizeDescriptor) {
+function Village(villageName, villageCulture, villagersAmount, villagersList, villageSizeDescriptor) {
   this.villageName = villageName;
+  this.villageCulture = villageCulture;
   this.villagersAmount = villagersAmount;
   this.villagersList = villagersList;
   this.villageSizeDescriptor = villageSizeDescriptor;
@@ -9,6 +10,9 @@ function Village(villageName, villagersAmount, villagersList, villageSizeDescrip
 
 Village.prototype.villageName = function() {
   return this.villageName;
+};
+Village.prototype.villageCulture = function() {
+  return this.villageCulture;
 };
 Village.prototype.villagersAmount = function() {
   return this.villagersAmount;
@@ -99,12 +103,37 @@ $(document).ready(function() {
       villageSizeDescriptor = "Metropolis";
     }
 //create instance of Village and Villager
-    //call on function in humanVillages.js to randomly create a villageName
-    var villageName = CreateNewHumanName();
-    var newVillage = new Village(villageName, villagersAmount, [], villageSizeDescriptor)
+    //call on function in respective *Villages.js to randomly create a villageName
+    var villageName = "";
+    var villageCulture = "";
+    if (parseInt($("#name").val()) == 0)  {
+      villageName = CreateNewOtherCityName();
+      villageCulture = "Other";
+    } else if (parseInt($("#name").val()) == 1) {
+      villageName = CreateNewDwarvenCityName();
+      villageCulture = "Dwarven";
+    }else if (parseInt($("#name").val()) == 2) {
+      villageName = CreateNewElvenCityName();
+      villageCulture = "Elven";
+    }else if (parseInt($("#name").val()) == 3) {
+      villageName = CreateNewGnomishCityName();
+      villageCulture = "Gnomish";
+    }else if (parseInt($("#name").val()) == 4) {
+      villageName = CreateNewOrcishCityName();
+      villageCulture = "Orcish";
+    }else if (parseInt($("#name").val()) == 5) {
+      villageName = CreateNewHalflingCityName();
+      villageCulture = "Halfling";
+    }else {
+      villageName = CreateNewHumanCityName();
+      villageCulture = "Human";
+    }
+
+    var newVillage = new Village(villageName, villageCulture, villagersAmount, [], villageSizeDescriptor)
     var newVillager = new Villager("Bob");
 // Create output of Village
     $("#villageType").text(newVillage.villageSizeDescriptor);
+    $("#villageCulture").text(newVillage.villageCulture);
     $("#villagersAmount").text(newVillage.villagersAmount);
     $("#villageName").text(newVillage.villageName);
 // Random creation of Villagers

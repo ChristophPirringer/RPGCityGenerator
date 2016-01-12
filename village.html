@@ -8,6 +8,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="resources/humanVillages.js"></script>
+    <script src="resources/dwarvenVillages.js"></script>
+    <script src="resources/elvenVillages.js"></script>
+    <script src="resources/gnomishVillages.js"></script>
+    <script src="resources/orcishVillages.js"></script>
+    <script src="resources/halflingVillages.js"></script>
+    <script src="resources/otherVillages.js"></script>
     <title>Village Creator 1.0</title>
 	</head>
 	<body>
@@ -46,14 +52,13 @@
            	  <td>
             		<select id="name">
             			<!-- Selecting town name by random racial name -->
-									<option value="0"selected="">Manual</option>
+									<option value="0"selected="">Manual/Other</option>
 									<option value="1">Random Drarven</option>
 									<option value="2">Random Elven</option>
-									<option value="3">Random Gnome</option>
-									<option value="4">Random Orc</option>
+									<option value="3">Random Gnomish</option>
+									<option value="4">Random Orcish</option>
 									<option value="5">Random Halfling</option>
 									<option value="6">Random Human</option>
-									<option value="7">Random Other</option>
 								</select>
 							</td>
 							<td>
@@ -80,7 +85,12 @@
 				<tr>
 					<th>Settlement Type</th>
 					<td><span id="villageType"></span></td>
-				</tr><tr>
+				</tr>
+				<tr>
+					<th>Predominant Culture</th>
+					<td><span id="villageCulture"></span></td>
+				</tr>
+				<tr>
 					<th>Population</th>
 					<td><span id="villagersAmount"></span></td>
 				</tr>
