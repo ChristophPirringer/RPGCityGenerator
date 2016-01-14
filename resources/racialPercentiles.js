@@ -56,3 +56,9 @@ function otherCalculation () {
 };
 
 
+
+//creates array with racial numbers to later create villagers with
+function racialArray () {
+	var racialArray = [dwarves, elves, gnomes, orcs, halflings, humans, others];
+	var randomRacialArray = shuffle(racialArray);
+};

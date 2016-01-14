@@ -1,3 +1,6 @@
+
+
+
 // Declare the Object of Village, with name, 
 // number of villagers and array of villager objects 
 function Village(villageName, villageCulture, villagersAmount, villagersList, villageSizeDescriptor, villageSizeModifier) {
@@ -151,17 +154,24 @@ $(document).ready(function() {
     }
 
     var newVillage = new Village(villageName, villageCulture, villagersAmount, [], villageSizeDescriptor, villageSizeModifier)
-    var newVillager = new Villager("Bob");
+    //var newVillager = new Villager("Bob");
 // Create output of Village
     $("#villageType").text(newVillage.villageSizeDescriptor);
     $("#villageCulture").text(newVillage.villageCulture);
     $("#villagersAmount").text(newVillage.villagersAmount);
     $("#villageName").text(newVillage.villageName);
 // Random creation of Villagers
-    for (var index = 0; index < villagersAmount; index += 1) {
-      newVillage.villagersList.push(newVillager.firstName);
-      $("ul#villagers_names").append("<li><span class='villager'>" + newVillager.firstName + "</span></li>");
+    //for (var index = 0; index < villagersAmount; index += 1) {
+    //  newVillage.villagersList.push(newVillager.firstName);
+    //  $("ul#villagers_names").append("<li><span class='villager'>" + newVillager.firstName + "</span></li>");
+    //}
+// Calling the function createVillagers from createVillagers.js it should update the villagersList with villagers that have their race assigned
+
+    newVillage.villagersList = createVillagers();
+    for (var index = 0; index <= newVillage.villagersList.lenth; index += 1) {
+      $("ul#villagers_names").append("<li><span class='villager'>" + newVillage.villagersList[index]["firstName"] + "</span></li>");
     }
+
 // on click of button call functions in racialPercentiles to calculate and insert values
     document.getElementById("createButton").onclick = dwarvenCalculation(), elvenCalculation(), gnomishCalculation(), orcishCalculation(), halflingCalculation(), humanCalculation(), otherCalculation();
 // Reset manual Input Value

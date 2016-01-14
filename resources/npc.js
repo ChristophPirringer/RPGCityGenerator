@@ -21,19 +21,23 @@ var npcnpcs = {
 	"Warrior": ( Math.floor(Math.random() * 7) + 2 + villageSizeModifier)
 };
 
-var "Adepts" = {}, "Aristocrats" = {}, "Barbarians" = {}, "Bards" = {}, "Clerics" = {}, "Commoners" = {}, "Druids" = {}, "Experts" = {}, "Fighters" = {};
-var "Monks" = {}, "Paladins" = {}, "Rangers" = {}, "Rogues" = {}, "Sorcerers" = {}, "Warriors" = {}, "Wizards"= {}, "Others" = {};
+var Adepts = {}, Aristocrats = {}, Barbarians = {}, Bards = {}, Clerics = {}, Commoners = {}, Druids = {}, Experts = {}, Fighters = {};
+var Monks = {}, Paladins = {}, Rangers = {}, Rogues = {}, Sorcerers = {}, Warriors = {}, Wizards= {}, Others = {};
+
+var highestLevelBarbarian = npcs.Barbarians;
+var Barbarians = {};
 
 function npcPlayerClassCalculation () {
-	var highestLevelBarbarian = npcs["Barbarian"];
-	var BarbarianAmount = 0;
-  if (villageSizeModifier > 5 && (Math.random() > 0.6 ) ) {
-  	Barbarians.highestLevelBarbarian = ( Math.floor(Math.random() * 3) + 1 )
-  	BarbarianAmount = ( Math.floor(Math.random() * 3) + 1 )
-  };	   
-	for (var index = highestLevelBarbarian; index >= 1; index = Math.ceil(index / 2)) {
-		BarbarianAmount = BarbarianAmount * 2;
-		Barbarians.index = BarbarianAmount; 
-  };
+    var BarbarianAmount = 1;
+    
+    if (villageSizeModifier > 5 && (Math.random() > 0.7 ) ) {
+     	BarbarianAmount = ( Math.floor(Math.random() * 3) + 1 );
+    } 
+    Barbarians[highestLevelBarbarian] = BarbarianAmount;
+  
+    for (var index = highestLevelBarbarian; index != 1; index = Math.ceil(index / 2)) {
+    	BarbarianAmount = BarbarianAmount * 2;
+    	Barbarians[index] = BarbarianAmount; 
+    }
 	return Barbarians;
-};
+}
