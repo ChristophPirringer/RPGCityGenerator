@@ -14,6 +14,7 @@
     <script src="resources/orcishVillages.js"></script>
     <script src="resources/halflingVillages.js"></script>
     <script src="resources/otherVillages.js"></script>
+    <script src="resources/racialPercentiles.js"></script>
     <title>Village Creator 1.0</title>
 	</head>
 	<body>
@@ -23,54 +24,106 @@
 			<h3>Create a village!</h3>
 			<form id="create_village" onsubmit="return false;">
 				<table>
-					<tbody>
-						<tr>
-							<td>Select a town size</td>
-           	  <td>
-            		<select id="size">
-            			<!-- Selecting town size by increment -->
-									<option value="0"selected="">Manual</option>
-									<option value="1">Any</option>
-									<option value="2">Thorp</option>
-									<option value="3">Hamlet</option>
-									<option value="4">Village</option>
-									<option value="5">Small Town</option>
-									<option value="6">Large Town</option>
-									<option value="7">Small City</option>
-									<option value="8">Large City</option>
-									<option value="9">Metropolis</option>
-								</select>
-							</td>
-							<td>
+					<table>
+						<tbody>
+							<tr>
+								<td>Select a town size</td>
+           	 	 <td>
+            			<select id="size">
+            				<!-- Selecting town size by increment -->
+										<option value="0"selected="">Manual</option>
+										<option value="1">Any</option>
+										<option value="2">Thorp</option>
+										<option value="3">Hamlet</option>
+										<option value="4">Village</option>
+										<option value="5">Small Town</option>
+										<option value="6">Large Town</option>
+										<option value="7">Small City</option>
+										<option value="8">Large City</option>
+										<option value="9">Metropolis</option>
+									</select>
+								</td>
+								<td>
 								<!-- Selecting town size by specific numeric input -->
-								<label for="amount">The amount of villagers: </label>
-	     				  <input type="number" name="amount" id="amount">
-							</td>
-						</tr>
-						<tr>
-							<td>Select a town name</td>
-           	  <td>
-            		<select id="name">
-            			<!-- Selecting town name by random racial name -->
-									<option value="0"selected="">Manual/Other</option>
-									<option value="1">Random Drarven</option>
-									<option value="2">Random Elven</option>
-									<option value="3">Random Gnomish</option>
-									<option value="4">Random Orcish</option>
-									<option value="5">Random Halfling</option>
-									<option value="6">Random Human</option>
-								</select>
-							</td>
-							<td>
-								<!-- Selecting town name by specific spelled input -->
-								<label for="name">The name of the village: </label>
-	     				  <input type="text" name="name" id="name">
-							</td>
-						</tr>
+									<label for="amount">The amount of villagers: </label>
+	     					  <input type="number" name="amount" id="amount">
+								</td>
+							</tr>
+						
+							<tr>
+								<td>Select a town name</td>
+           		  <td>
+            			<select id="name">
+            				<!-- Selecting town name by random racial name -->
+										<option value="0"selected="">Manual/Other</option>
+										<option value="1">Random Drarven</option>
+										<option value="2">Random Elven</option>
+										<option value="3">Random Gnomish</option>
+										<option value="4">Random Orcish</option>
+										<option value="5">Random Halfling</option>
+										<option value="6">Random Human</option>
+									</select>
+								</td>
+								<td>
+									<!-- Selecting town name by specific spelled input -->
+									<label for="name">The name of the village: </label>
+	     					  <input type="text" name="name" id="name">
+								</td>
+							</tr>
+						</table>
+						<table>
+							<tr id="racial_percentiles">
+								<!-- Selecting racial percentiles by specific numeric input -->
+								<td>
+									<label for="dwarven_percentile">The percentiles of dwarves: </label>
+	     					  <input type="number" name="dwarven_percentile" id="dwarven_percentile" min="0" max="100">
+								</td>
+								<td>
+									<label for="delrven_percentile">The percentiles of elves: </label>
+	     					  <input type="number" name="elven_percentile" id="elven_percentile" min="0" max="100">
+								</td>
+								<td>
+									<label for="gnomish_percentile">The percentiles of gnomes: </label>
+	     					  <input type="number" name="gnomish_percentile" id="gnomish_percentile" min="0" max="100">
+								</td>
+							</tr><tr>
+								<td>
+									<label for="orcish_percentile">The percentiles of orcs: </label>
+	     					  <input type="number" name="orcish_percentile" id="orcish_percentile" min="0" max="100">
+								</td>
+								<td>
+									<label for="halfling_percentile">The percentiles of halflings: </label>
+	     				  <input type="number" name="halfling_percentile" id="halfling_percentile" min="0" max="100">
+								</td>
+								<td>
+									<label for="human_percentile">The percentiles of humans: </label>
+	     				 		<input type="number" name="human_percentile" id="human_percentile" min="0" max="100">
+								</td>
+							</tr>
+							<tr>
+								<!-- Dynamic output of current total percentile -->
+								<td>
+									<label for="total_percentile">Total current percentiles: </label>
+	     					  <h4 id="total_percentile"></h4>
+	     					  <h6>Remaining percentile will be listed as "other".</h6>
+								</td>
+								<table>
+									<!-- Dynamic output of current single percentiles and numbers -->
+									<tr><p>Dwarves: </p><div id="dwarven_number"></div><div id="dwarven_percentile_output"></div></tr>
+									<tr><p>Elves: </p><div id="elven_number"></div><div id="elven_percentile_output"></div></tr>
+									<tr><p>Gnomes: </p><div id="gnomish_number"></div><div id="gnomish_percentile_output"></div></tr>
+									<tr><p>Orcs: </p><div id="orcish_number"></div><div id="orcish_percentile_output"></div></tr>
+									<tr><p>Halflings: </p><div id="halfling_number"></div><div id="halfling_percentile_output"></div></tr>
+									<tr><p>Humans: </p><div id="human_number"></div><div id="human_percentile_output"></div></tr>
+									<tr><p>Other: </p><div id="other_number"></div><div id="other_percentile_output"></div></tr>
+									
+								</table>	
+							</tr>
+						</table>
   				</tbody>
   			</table>
 	      
-	      <button type="submit" class="btn btn-submit">Create!</button>
+	      <button type="submit" class="btn btn-submit" id="createButton">Create!</button>
 	    </form>
 		</div>
 

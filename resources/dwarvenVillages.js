@@ -1,4 +1,4 @@
-var nameSyllables = ["dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf"];
+var dwarvenSyllables = ["dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf"];
 
 function CreateNewDwarvenCityName()
 {
@@ -7,7 +7,7 @@ function CreateNewDwarvenCityName()
     var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
     for (var i = 0; i < numberOfSyllablesInFirstName; i++)
     {
-        firstName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))]; 
+        firstName += dwarvenSyllables[Math.floor(getRandom(0, (dwarvenSyllables.length + 1)))]; 
     }
  
     var firstNameLetter = firstName[0];
@@ -20,7 +20,7 @@ function CreateNewDwarvenCityName()
     var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
     for (var i = 0; i < numberOfSyllablesInSecondName; i++)
     {
-        secondName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))];
+        secondName += dwarvenSyllables[Math.floor(getRandom(0, (dwarvenSyllables.length + 1)))];
     }
 
     var secondNameLetter = secondName[0];

@@ -1,4 +1,4 @@
-var nameSyllables = ["gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome"];
+var gnomishSyllables = ["gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome"];
 
 function CreateNewGnomishCityName()
 {
@@ -7,7 +7,7 @@ function CreateNewGnomishCityName()
     var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
     for (var i = 0; i < numberOfSyllablesInFirstName; i++)
     {
-        firstName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))]; 
+        firstName += gnomishSyllables[Math.floor(getRandom(0, (gnomishSyllables.length + 1)))]; 
     }
  
     var firstNameLetter = firstName[0];
@@ -20,7 +20,7 @@ function CreateNewGnomishCityName()
     var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
     for (var i = 0; i < numberOfSyllablesInSecondName; i++)
     {
-        secondName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))];
+        secondName += gnomishSyllables[Math.floor(getRandom(0, (gnomishSyllables.length + 1)))];
     }
 
     var secondNameLetter = secondName[0];

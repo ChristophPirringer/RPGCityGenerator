@@ -1,4 +1,4 @@
-var nameSyllables = ["elf", "elf", "elf", "elf", "elf", "elf", "elf", "elf"];
+var elvenSyllables = ["elf", "elf", "elf", "elf", "elf", "elf", "elf", "elf"];
 
 function CreateNewElvenCityName()
 {
@@ -7,7 +7,7 @@ function CreateNewElvenCityName()
     var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
     for (var i = 0; i < numberOfSyllablesInFirstName; i++)
     {
-        firstName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))]; 
+        firstName += elvenSyllables[Math.floor(getRandom(0, (elvenSyllables.length + 1)))]; 
     }
  
     var firstNameLetter = firstName[0];
@@ -20,7 +20,7 @@ function CreateNewElvenCityName()
     var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
     for (var i = 0; i < numberOfSyllablesInSecondName; i++)
     {
-        secondName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))];
+        secondName += elvenSyllables[Math.floor(getRandom(0, (elvenSyllables.length + 1)))];
     }
 
     var secondNameLetter = secondName[0];

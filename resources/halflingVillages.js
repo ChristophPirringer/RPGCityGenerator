@@ -1,4 +1,4 @@
-var nameSyllables = ["halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling"];
+var halflingSyllables = ["halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling"];
 
 function CreateNewHalflingCityName()
 {
@@ -7,7 +7,7 @@ function CreateNewHalflingCityName()
     var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
     for (var i = 0; i < numberOfSyllablesInFirstName; i++)
     {
-        firstName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))]; 
+        firstName += halflingSyllables[Math.floor(getRandom(0, (halflingSyllables.length + 1)))]; 
     }
  
     var firstNameLetter = firstName[0];
@@ -20,7 +20,7 @@ function CreateNewHalflingCityName()
     var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
     for (var i = 0; i < numberOfSyllablesInSecondName; i++)
     {
-        secondName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))];
+        secondName += halflingSyllables[Math.floor(getRandom(0, (halflingSyllables.length + 1)))];
     }
 
     var secondNameLetter = secondName[0];

@@ -1,4 +1,4 @@
-var nameSyllables = ["orc", "orc", "orc", "orc", "orc", "orc", "orc", "orc"];
+var orcishSyllables = ["orc", "orc", "orc", "orc", "orc", "orc", "orc", "orc"];
 
 function CreateNewOrcishCityName()
 {
@@ -7,7 +7,7 @@ function CreateNewOrcishCityName()
     var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
     for (var i = 0; i < numberOfSyllablesInFirstName; i++)
     {
-        firstName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))]; 
+        firstName += orcishSyllables[Math.floor(getRandom(0, (orcishSyllables.length + 1)))]; 
     }
  
     var firstNameLetter = firstName[0];
@@ -20,7 +20,7 @@ function CreateNewOrcishCityName()
     var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
     for (var i = 0; i < numberOfSyllablesInSecondName; i++)
     {
-        secondName += nameSyllables[Math.floor(getRandom(0, (nameSyllables.length + 1)))];
+        secondName += orcishSyllables[Math.floor(getRandom(0, (orcishSyllables.length + 1)))];
     }
 
     var secondNameLetter = secondName[0];
