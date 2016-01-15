@@ -29,7 +29,9 @@ Race.prototype.percentileCalculation = function() {
 	var otherPercentileOutput = Math.floor(villagersAmount * (otherPercentile/100));
 	
 	//return var races = {"dwarves": dwarvenPercentileOutput, "elves": elvenPercentileOutput, "gnomes": gnomishPercentileOutput, "orcs": orcishPercentileOutput, "halflings": halflingPercentileOutput, "humans": humanPercentileOutput, "others": otherPercentileOutput}
-	return var races = {"dwarves": dwarvenPercentile, "elves": elvenPercentile, "gnomes": gnomishPercentile, "orcs": orcishPercentile, "halflings": halflingPercentile, "humans": humanPercentile, "others": otherPercentile}
+	var races = {"dwarves": dwarvenPercentile, "elves": elvenPercentile, "gnomes": gnomishPercentile, "orcs": orcishPercentile, "halflings": halflingPercentile, "humans": humanPercentile, "others": otherPercentile}
+	return races;
+
 };
 
 Race.prototype.percentileOutput = function() {
