@@ -173,7 +173,7 @@ $(document).ready(function() {
     }
 
 // on click of button call functions in racialPercentiles to calculate and insert values
-    document.getElementById("createButton").onclick = dwarvenCalculation(), elvenCalculation(), gnomishCalculation(), orcishCalculation(), halflingCalculation(), humanCalculation(), otherCalculation();
+    document.getElementById("createButton").onclick = percentileCalculation(), percentileOutputs();
 // Reset manual Input Value
     $("input#amount").val("");
     $("input#name").val("");

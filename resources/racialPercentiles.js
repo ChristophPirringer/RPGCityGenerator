@@ -1,7 +1,6 @@
 // Declare the Object of Race with input of percentile and designation from form 
 var dwarvenPercentile = 0, elvenPercentile = 0, orcishPercentile = 0, gnomishPercentile = 0, halflingPercentile = 0, humanPercentile = 0, otherPercentile = 0;
 
-
 function Race(percentile, number) {
   this.percentile = percentile;
 };
@@ -12,50 +11,37 @@ Race.prototype.number = function() {
   return this.number;
 };
 
-function dwarvenCalculation () {
-	dwarvenPercentile = parseInt($("#dwarven_percentile").val());
+Race.prototype.percentileCalculation = function() {
+
+	var dwarvenPercentile = parseInt($("#dwarven_percentile").val());
+	var elvenPercentile = parseInt($("#elven_percentile").val());
+	var gnomishPercentile = parseInt($("#gnomish_percentile").val());
+	var orcishPercentile = parseInt($("#orcish_percentile").val());
+	var halflingPercentile = parseInt($("#halfling_percentile").val());
+	var humanPercentile = parseInt($("#human_percentile").val());
+	var otherPercentile = parseInt($("#other_percentile").val());
 	var dwarvenPercentileOutput = Math.floor(villagersAmount * (dwarvenPercentile/100));
-	dwarves = new Race(dwarvenPercentile, dwarvenPercentileOutput);
-	$("#dwarven_percentile_output").text(dwarvenPercentileOutput);
-};
-function elvenCalculation () {
-	elvenPercentile = parseInt($("#elven_percentile").val());
 	var elvenPercentileOutput = Math.floor(villagersAmount * (elvenPercentile/100));
-	elves = new Race(elvenPercentile, elvenPercentileOutput);
-	$("#elven_percentile_output").text(elvenPercentileOutput);
-};
-function gnomishCalculation () {
-	gnomishPercentile = parseInt($("#gnomish_percentile").val());
 	var gnomishPercentileOutput = Math.floor(villagersAmount * (gnomishPercentile/100));
-	gnomes = new Race(gnomishPercentile, gnomishPercentileOutput);
-	$("#gnomish_percentile_output").text(gnomishPercentileOutput);
-};
-function orcishCalculation () {
-	orcishPercentile = parseInt($("#orcish_percentile").val());
 	var orcishPercentileOutput = Math.floor(villagersAmount * (orcishPercentile/100));
-	orcs = new Race(orcishPercentile, orcishPercentileOutput);
-	$("#orcish_percentile_output").text(orcishPercentileOutput);
-};
-function halflingCalculation () {
-	halflingPercentile = parseInt($("#halfling_percentile").val());
 	var halflingPercentileOutput = Math.floor(villagersAmount * (halflingPercentile/100));
-	halflings = new Race(halflingPercentile, halflingPercentileOutput);
-	$("#halfling_percentile_output").text(halflingPercentileOutput);
-};
-function humanCalculation () {
-	humanPercentile = parseInt($("#human_percentile").val());
 	var humanPercentileOutput = Math.floor(villagersAmount * (humanPercentile/100));
-	humans = new Race(humanPercentile, humanPercentileOutput);
-	$("#human_percentile_output").text(humanPercentileOutput);
-};
-function otherCalculation () {
-	otherPercentile = 100 -(dwarvenPercentile + elvenPercentile + gnomishPercentile + orcishPercentile + halflingPercentile + humanPercentile + otherPercentile);
 	var otherPercentileOutput = Math.floor(villagersAmount * (otherPercentile/100));
-	others = new Race(otherPercentile, otherPercentileOutput);
-	$("#other_percentile_output").text(otherPercentileOutput);
+	
+	//return var races = {"dwarves": dwarvenPercentileOutput, "elves": elvenPercentileOutput, "gnomes": gnomishPercentileOutput, "orcs": orcishPercentileOutput, "halflings": halflingPercentileOutput, "humans": humanPercentileOutput, "others": otherPercentileOutput}
+	return var races = {"dwarves": dwarvenPercentile, "elves": elvenPercentile, "gnomes": gnomishPercentile, "orcs": orcishPercentile, "halflings": halflingPercentile, "humans": humanPercentile, "others": otherPercentile}
 };
 
+Race.prototype.percentileOutput = function() {
+	$("#dwarven_percentile_output").text(dwarvenPercentileOutput);
+	$("#elven_percentile_output").text(elvenPercentileOutput);
+	$("#gnomish_percentile_output").text(gnomishPercentileOutput);
+	$("#orcish_percentile_output").text(orcishPercentileOutput);
+	$("#halfling_percentile_output").text(halflingPercentileOutput);
+	$("#human_percentile_output").text(humanPercentileOutput);
+	$("#other_percentile_output").text(otherPercentileOutput);
 
+}
 
 //creates array with racial numbers to later create villagers with
 function racialArray () {
