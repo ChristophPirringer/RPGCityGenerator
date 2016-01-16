@@ -131,34 +131,76 @@ $(document).ready(function() {
       villageSizeModifier = 12;
     }
 //create instance of Village and Villager
-    //call on function in respective *Villages.js to randomly create a villageName
-    var villageName = "";
-    var villageCulture = "";
+    //create random village name and village culture depending on selected town name
+var dwarfSyllables = ["dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf", "dwarf"];
+var elfSyllables = ["elf", "elf", "elf", "elf", "elf", "elf", "elf", "elf"];
+var gnomeSyllables = ["gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome", "gnome"];
+var orcSyllables = ["orc", "orc", "orc", "orc", "orc", "orc", "orc", "orc"];
+var halflingSyllables = ["halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling", "halfling"];
+var humanSyllables = ["human", "human", "human", "human", "human", "human", "human", "human"];
+var otherSyllables = ["other", "other", "other", "other", "other", "other", "other", "other"];
+var villageName = "";
+var villageCulture = "";
+
+function createVillageName(){
+    var syllables = []
+
     if (parseInt($("#name").val()) == 0)  {
-      villageName = CreateNewOtherCityName();
+      syllables = otherSyllables;
       villageCulture = "Other";
     } else if (parseInt($("#name").val()) == 1) {
-      villageName = CreateNewDwarvenCityName();
+      syllables = dwarfSyllables;
       villageCulture = "Dwarven";
     }else if (parseInt($("#name").val()) == 2) {
-      villageName = CreateNewElvenCityName();
+      syllables = elfSyllables;
       villageCulture = "Elven";
     }else if (parseInt($("#name").val()) == 3) {
-      villageName = CreateNewGnomishCityName();
+      syllables = gnomeSyllables;
       villageCulture = "Gnomish";
     }else if (parseInt($("#name").val()) == 4) {
-      villageName = CreateNewOrcishCityName();
+      syllables = orcSyllables;
       villageCulture = "Orcish";
     }else if (parseInt($("#name").val()) == 5) {
-      villageName = CreateNewHalflingCityName();
+      syllables = halflingSyllables
       villageCulture = "Halfling";
     }else {
-      villageName = CreateNewHumanCityName();
+      syllables = humanSyllables;
       villageCulture = "Human";
     }
+    //Creates a first name with 1-3 syllables
+    var firstName = "";
+    var numberOfSyllablesInFirstName = Math.floor(getRandom(2, 5));
+    for (var i = 0; i < numberOfSyllablesInFirstName; i++)
+    {
+        firstName += syllables[Math.floor(getRandom(0, (syllables.length + 1)))]; 
+    }
+ 
+    var firstNameLetter = firstName[0];
+    firstName = firstName.slice(1);
+    firstNameLetter = firstNameLetter.toUpperCase();
+    firstName = firstNameLetter + firstName;
+
+    //Creates a second name with 2-4 syllables
+    var secondName = "";
+    var numberOfSyllablesInSecondName = Math.floor(getRandom(4, 6));
+    for (var i = 0; i < numberOfSyllablesInSecondName; i++)
+    {
+        secondName += syllables[Math.floor(getRandom(0, (syllables.length + 1)))];
+    }
+
+    var secondNameLetter = secondName[0];
+    secondName = secondName.slice(1);
+    secondNameLetter = secondNameLetter.toUpperCase();
+    secondName = secondNameLetter + secondName;
+
+    var completeName = firstName + " " + secondName;
+    return completeName;
+}
+    
 
     newVillage = new Village(villageName, villageCulture, villagersAmount, [], villageSizeDescriptor, villageSizeModifier)
     newVillage.villagersList = createVillagers();
+    newVillage.villageName = createVillageName();
 
 // Create output of Village
     $("#villageType").text(newVillage.villageSizeDescriptor);
