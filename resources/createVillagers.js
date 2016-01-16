@@ -114,24 +114,27 @@ Villager.prototype.gp = function() {
 };
 
 //create array with racial numbers to later create villagers with
-var villagersByRace = racialArray();
+
 
 //fill newVillagers with hashes of each villagers with set race
 function createVillagers () {
 	//create empty array for villager Objects
+  var villagersByRace = racialArray();
 	var newVillagers = [];
 	for (var i = 0; i <= villagersAmount; i++) {
 		newVillager = new Villager(villagersByRace[0], "age", "firstName", "lastName", "profession", "characterClass", "level", "bodyHeight", "sizeCategory", "hd", "hp", "initiative", "speed", "ac", "attackMelee", "attackRanged", "fortSave", "refSave", "willSave", "alignment", "str", "dex", "con", "intl", "wis", "cha", "gp")
 		newVillagers.push(newVillager);
 		villagersByRace.shift();	
 	}
+  for (var index = 0; index <= newVillagers.length; index += 1) {
+      $("ul#villagers_names").append("<li><span class='villager'>" + newVillagers[index]["race"] + "</span></li>");
+  }
 	return newVillagers;
 	//should return an array of hashes of the villagers
 };
 
-function displayVillagers () {
-  newVillage.villagersList = createVillagers();
-    for (var index = 0; index <= newVillage.villagersList.lenth; index += 1) {
-      $("ul#villagers_names").append("<li><span class='villager'>" + newVillage.villagersList[index]["race"] + "</span></li>");
-    }
-};
+//function displayVillagers () {
+ //   for (var index = 0; index <= newVillage.villagersList.lenth; index += 1) {
+ //     $("ul#villagers_names").append("<li><span class='villager'>" + newVillage.villagersList[index]["race"] + "</span></li>");
+//    }
+//};

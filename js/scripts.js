@@ -47,10 +47,7 @@ function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 };
 
-
-$(document).ready(function() {
-  $("form#create_village").submit(function(event) {
-    event.preventDefault();
+function villagersAmountCalculation() {
 // Gather input for Village Creation
     var villageSizeInput = parseInt($("#size").val());
     villagersAmount = 0;
@@ -91,41 +88,49 @@ $(document).ready(function() {
           villagersAmount = Math.floor(getRandom(25000, 50000));          
           break;
       }
-    };
+    }
+    return villagersAmount;
+  }
+
+$(document).ready(function() {
+  $("form#create_village").submit(function(event) {
+    event.preventDefault();
+
+
 
 
 // Take villagersAmount to set corresponding verbal size descriptor
-    if (villagersAmount < 100)  {
+    if (villagersAmountCalculation() < 100)  {
       villageSizeDescriptor = "Thorp";
       villageSizeModifier = -3;
       if (Math.random() > 0.95) {
         villageSizeModifier = 7;
       }
-    } else if (villagersAmount < 500) {
+    } else if (villagersAmountCalculation() < 500) {
       villageSizeDescriptor = "Hamlet";
       villageSizeModifier = -2;
       if (Math.random() > 0.95) {
         villageSizeModifier = 8;
       }
-    }else if (villagersAmount < 1000) {
+    }else if (villagersAmountCalculation() < 1000) {
       villageSizeDescriptor = "Village";
       villageSizeModifier = -1;
-    }else if (villagersAmount < 2000) {
+    }else if (villagersAmountCalculation() < 2000) {
       villageSizeDescriptor = "Small Town";
       villageSizeModifier = -0;
-    }else if (villagersAmount < 5000) {
+    }else if (villagersAmountCalculation() < 5000) {
       villageSizeDescriptor = "Large Town";
       villageSizeModifier = 3;
-    }else if (villagersAmount < 10000) {
+    }else if (villagersAmountCalculation() < 10000) {
       villageSizeDescriptor = "Small City";
       villageSizeModifier = 6;
-    }else if (villagersAmount < 25000) {
+    }else if (villagersAmountCalculation() < 25000) {
       villageSizeDescriptor = "Large City";
       villageSizeModifier = 9;
     }else {
       villageSizeDescriptor = "Metropolis";
       villageSizeModifier = 12;
-    };
+    }
 //create instance of Village and Villager
     //call on function in respective *Villages.js to randomly create a villageName
     var villageName = "";
@@ -153,8 +158,9 @@ $(document).ready(function() {
       villageCulture = "Human";
     }
 
-    var newVillage = new Village(villageName, villageCulture, villagersAmount, [], villageSizeDescriptor, villageSizeModifier)
-    //var newVillager = new Villager("Bob");
+    newVillage = new Village(villageName, villageCulture, villagersAmount, [], villageSizeDescriptor, villageSizeModifier)
+    newVillage.villagersList = createVillagers();
+
 // Create output of Village
     $("#villageType").text(newVillage.villageSizeDescriptor);
     $("#villageCulture").text(newVillage.villageCulture);
@@ -164,7 +170,7 @@ $(document).ready(function() {
 // on click of button call functions in:
 // racialPercentiles to calculate and insert values for racial makeup of village
 // createVillagers to create the Villagers and insert their statblock into page
-    document.getElementById("createButton").onclick = percentileCalculation(), percentileOutput(), createVillagers(), displayVillagers();
+    document.getElementById("createButton").onclick = percentileCalculation(), percentileOutput();
 // Reset manual Input Value
     $("input#amount").val("");
     $("input#name").val("");

@@ -22,14 +22,14 @@ function percentileCalculation () {
 	orc = parseInt($("#orcish_percentile").val());
 	halfling = parseInt($("#halfling_percentile").val());
 	human = parseInt($("#human_percentile").val());
-	other = 100 - (dwarf + elf + gnome + orc + halfling + human + other);
-	dwarvenPercentileOutput = Math.floor(villagersAmount * (dwarf/100));
-	elvenPercentileOutput = Math.floor(villagersAmount * (elf/100));
-	gnomishPercentileOutput = Math.floor(villagersAmount * (gnome/100));
-	orcishPercentileOutput = Math.floor(villagersAmount * (orc/100));
-	halflingPercentileOutput = Math.floor(villagersAmount * (halfling/100));
-	humanPercentileOutput = Math.floor(villagersAmount * (human/100));
-	otherPercentileOutput = Math.floor(villagersAmount * (other/100));
+	other = 100 - (dwarf + elf + gnome + orc + halfling + human);
+	dwarvenPercentileOutput = Math.floor(villagersAmountCalculation() * (dwarf/100));
+	elvenPercentileOutput = Math.floor(villagersAmountCalculation() * (elf/100));
+	gnomishPercentileOutput = Math.floor(villagersAmountCalculation() * (gnome/100));
+	orcishPercentileOutput = Math.floor(villagersAmountCalculation() * (orc/100));
+	halflingPercentileOutput = Math.floor(villagersAmountCalculation() * (halfling/100));
+	humanPercentileOutput = Math.floor(villagersAmountCalculation() * (human/100));
+	otherPercentileOutput = Math.floor(villagersAmountCalculation() * (other/100));
 	
 	var races = {"dwarves": dwarf, "elves": elf, "gnomes": gnome, "orcs": orc, "halflings": halfling, "humans": human, "others": other}
 	return races;
@@ -56,11 +56,12 @@ function shuffle(o){
 function racialArray () {
 	var raceList = [dwarf, elf, gnome, orc, halfling, human, other];
 	var villageRacialArray = [];
+	var races = percentileCalculation();
 
 	for(var i=0; i < 7; i++){
         var currentRace = raceList[i];
-    for(var j=0; j<= raceList[i]; j++) {
-    	villageRacialArray.push(raceList[i]);
+    for(var j=0; j<= _.values(races)[j]; j++) {
+    	villageRacialArray.push(_.keys(races)[j]);
     }
 	}
 	var randomRacialArray = shuffle(villageRacialArray);
