@@ -13,13 +13,13 @@ Race.prototype.number = function() {
 
 Race.prototype.percentileCalculation = function() {
 
-	var dwarvenPercentile = parseInt($("#dwarven_percentile").val());
-	var elvenPercentile = parseInt($("#elven_percentile").val());
-	var gnomishPercentile = parseInt($("#gnomish_percentile").val());
-	var orcishPercentile = parseInt($("#orcish_percentile").val());
-	var halflingPercentile = parseInt($("#halfling_percentile").val());
-	var humanPercentile = parseInt($("#human_percentile").val());
-	var otherPercentile = parseInt($("#other_percentile").val());
+	var dwarf = parseInt($("#dwarven_percentile").val());
+	var elf = parseInt($("#elven_percentile").val());
+	var gnome = parseInt($("#gnomish_percentile").val());
+	var orc = parseInt($("#orcish_percentile").val());
+	var halfling = parseInt($("#halfling_percentile").val());
+	var human = parseInt($("#human_percentile").val());
+	var other = parseInt($("#other_percentile").val());
 	var dwarvenPercentileOutput = Math.floor(villagersAmount * (dwarvenPercentile/100));
 	var elvenPercentileOutput = Math.floor(villagersAmount * (elvenPercentile/100));
 	var gnomishPercentileOutput = Math.floor(villagersAmount * (gnomishPercentile/100));
@@ -46,7 +46,21 @@ Race.prototype.percentileOutput = function() {
 }
 
 //creates array with racial numbers to later create villagers with
+function shuffle(o){
+   for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+   return o;
+}
+	
 function racialArray () {
-	var racialArray = [dwarves, elves, gnomes, orcs, halflings, humans, others];
-	var randomRacialArray = shuffle(racialArray);
-};
+	var raceList = ["dwarf", "elf", "gnome", "orc", "halfling", "human", "other"];
+	var villageRacialArray = [];
+
+	for(var i=0; i < 7; i++){
+        var currentRace = raceList[i];
+    for(var j=0; j<= eval(raceList[i]); j++) {
+    	villageRacialArray.push(raceList[i]);
+    }
+	}
+	var randomRacialArray = shuffle(villageRacialArray);
+	return randomRacialArray;
+}

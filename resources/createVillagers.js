@@ -20,8 +20,8 @@ function Villager(race, age, firstName, lastName, profession, characterClass, le
   this.refSave = refSave;
   this.willSave = willSave;
   this.alignment = alignment;
-  this.st = st;
-  this.de = de;
+  this.str = str;
+  this.dex = dex;
   this.con = con;
   this.wis = wis;
   this.intl = intl;
