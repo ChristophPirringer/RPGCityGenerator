@@ -92,39 +92,38 @@ function villagersAmountCalculation() {
     return villagersAmount;
   }
 
+var villagersAmount = villagersAmountCalculation();
+
 $(document).ready(function() {
   $("form#create_village").submit(function(event) {
     event.preventDefault();
 
-
-
-
 // Take villagersAmount to set corresponding verbal size descriptor
-    if (villagersAmountCalculation() < 100)  {
+    if (villagersAmount < 100)  {
       villageSizeDescriptor = "Thorp";
       villageSizeModifier = -3;
       if (Math.random() > 0.95) {
         villageSizeModifier = 7;
       }
-    } else if (villagersAmountCalculation() < 500) {
+    } else if (villagersAmount < 500) {
       villageSizeDescriptor = "Hamlet";
       villageSizeModifier = -2;
       if (Math.random() > 0.95) {
         villageSizeModifier = 8;
       }
-    }else if (villagersAmountCalculation() < 1000) {
+    }else if (villagersAmount < 1000) {
       villageSizeDescriptor = "Village";
       villageSizeModifier = -1;
-    }else if (villagersAmountCalculation() < 2000) {
+    }else if (villagersAmount < 2000) {
       villageSizeDescriptor = "Small Town";
       villageSizeModifier = -0;
-    }else if (villagersAmountCalculation() < 5000) {
+    }else if (villagersAmount < 5000) {
       villageSizeDescriptor = "Large Town";
       villageSizeModifier = 3;
-    }else if (villagersAmountCalculation() < 10000) {
+    }else if (villagersAmount < 10000) {
       villageSizeDescriptor = "Small City";
       villageSizeModifier = 6;
-    }else if (villagersAmountCalculation() < 25000) {
+    }else if (villagersAmount < 25000) {
       villageSizeDescriptor = "Large City";
       villageSizeModifier = 9;
     }else {

@@ -18,3 +18,11 @@ function shuffle(array) {
 
   return array;
 }
+
+function rolld(dice) {
+  var result;
+  while (1) {
+    result = Math.floor(Math.random() * dice+1);
+    if ((result >= 1) && (result <= dice)) { return result;}
+  }
+}

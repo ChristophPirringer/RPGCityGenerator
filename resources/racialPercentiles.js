@@ -31,7 +31,7 @@ function percentileCalculation () {
 	humanPercentileOutput = Math.floor(villagersAmountCalculation() * (human/100));
 	otherPercentileOutput = Math.floor(villagersAmountCalculation() * (other/100));
 	
-	var races = {"dwarves": dwarf, "elves": elf, "gnomes": gnome, "orcs": orc, "halflings": halfling, "humans": human, "others": other}
+	var races = {"dwarves": dwarf, "elves": elf, "gnomes": gnome, "orcs": orc, "halflings": halfling, "humans": human, "others": other};
 	return races;
 
 };
