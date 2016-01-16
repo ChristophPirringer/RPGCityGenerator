@@ -128,3 +128,10 @@ function createVillagers () {
 	return newVillagers;
 	//should return an array of hashes of the villagers
 };
+
+function displayVillagers () {
+  newVillage.villagersList = createVillagers();
+    for (var index = 0; index <= newVillage.villagersList.lenth; index += 1) {
+      $("ul#villagers_names").append("<li><span class='villager'>" + newVillage.villagersList[index]["race"] + "</span></li>");
+    }
+};

@@ -160,20 +160,11 @@ $(document).ready(function() {
     $("#villageCulture").text(newVillage.villageCulture);
     $("#villagersAmount").text(newVillage.villagersAmount);
     $("#villageName").text(newVillage.villageName);
-// Random creation of Villagers
-    //for (var index = 0; index < villagersAmount; index += 1) {
-    //  newVillage.villagersList.push(newVillager.firstName);
-    //  $("ul#villagers_names").append("<li><span class='villager'>" + newVillager.firstName + "</span></li>");
-    //}
-// Calling the function createVillagers from createVillagers.js it should update the villagersList with villagers that have their race assigned
 
-    newVillage.villagersList = createVillagers();
-    for (var index = 0; index <= newVillage.villagersList.lenth; index += 1) {
-      $("ul#villagers_names").append("<li><span class='villager'>" + newVillage.villagersList[index]["firstName"] + "</span></li>");
-    }
-
-// on click of button call functions in racialPercentiles to calculate and insert values
-    document.getElementById("createButton").onclick = percentileCalculation(), percentileOutputs();
+// on click of button call functions in:
+// racialPercentiles to calculate and insert values for racial makeup of village
+// createVillagers to create the Villagers and insert their statblock into page
+    document.getElementById("createButton").onclick = percentileCalculation(), percentileOutput(), createVillagers(), displayVillagers();
 // Reset manual Input Value
     $("input#amount").val("");
     $("input#name").val("");
